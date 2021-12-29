@@ -1,11 +1,13 @@
 # cheatsheet-docker
 Referencing the most useful and/or common commands
 
-## List Docker CLI commands
+### List Docker CLI commands
+```
 docker
 docker container --help
+```
 
-## Display Docker version and info
+#### Display Docker version and info
 docker --version
 docker version
 docker info
