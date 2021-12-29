@@ -7,23 +7,30 @@ docker
 docker container --help
 ```
 
-#### Display Docker version and info
+### Display Docker version and info
+```
 docker --version
 docker version
 docker info
+```
 
-## Execute Docker image
+### Execute Docker image
+```
 docker run hello-world
+```
 
-## List Docker images
+### List Docker images
+```
 docker image ls
+```
 
 ## List Docker containers (running, all, all in quiet mode)
 docker container ls
 docker container ls --all
 docker container ls -aq
 
-## All relevant and useful Docker commands related to containers and images
+### All relevant and useful Docker commands related to containers and images
+```
 docker build -t friendlyhello .                             # Create image using this directory's Dockerfile
 docker run -p 4000:80 friendlyhello                         # Run "friendlyhello" mapping port 4000 to 80
 docker run -d -p 4000:80 friendlyhello                      # Same thing, but in detached mode
@@ -45,10 +52,12 @@ docker-compose down -v                                      # Stop and remove al
 docker rmi -f $(docker images -a -q)                        # Delete all images on the host machine
 docker volume rm $(docker volume ls -q)                     # Delete all volumes on the host machine
 docker container prune                                      # Delete all containers on the host machine
+```
 
-## To recap, while typing docker run is simple enough, the true implementation of a container in production is running it as a service. Services codify a container’s behavior in a Compose file, and this file can be used to scale, limit, and redeploy our app. Changes to the service can be applied in place, as it runs, using the same command that launched the service: docker stack deploy.
+> To recap, while typing docker run is simple enough, the true implementation of a container in production is running it as a service. Services codify a container’s behavior in a Compose file, and this file can be used to scale, limit, and redeploy our app. Changes to the service can be applied in place, as it runs, using the same command that launched the service: docker stack deploy.
 
-## Some commands to explore at this stage:
+### Some commands to explore at this stage:
+```
 docker stack ls                                             # List stacks or apps
 docker stack deploy -c <composefile> <appname>              # Run the specified Compose file
 docker service ls                                           # List running services associated with an app
@@ -57,7 +66,9 @@ docker inspect <task or container>                          # Inspect task or co
 docker container ls -q                                      # List container IDs
 docker stack rm <appname>                                   # Tear down an application
 docker swarm leave --force                                  # Take down a single node swarm from the manager
-
-## NOTE: In order to create a docker machine without the VT-X/AMD-v enabled check.
+```
+### NOTE: In order to create a docker machine without the VT-X/AMD-v enabled check.
+```
 docker-machine create `name` --virtualbox-no-vtx-check
 docker-machine create -d virtualbox --virtualbox-no-vtx-check `name`
+```
